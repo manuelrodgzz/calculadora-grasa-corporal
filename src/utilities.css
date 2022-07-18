@@ -1,4 +1,21 @@
 .container {
-    max-width: 960px;
-    padding: 0 3rem;
+    max-width: 1440px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.background-primary {
+    background-color: #8667F0;
+}
+
+.background-secondary {
+    background-color: black;
+}
+
+.columns {
+    display: flex;
+}
+
+.columns > .column {
+    flex: 1 1 0px;
 }
