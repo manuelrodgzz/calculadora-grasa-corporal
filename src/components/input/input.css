@@ -1,0 +1,30 @@
+input {
+    background-color: black;
+    border: 1px solid #3F4959;
+    border-radius: 2rem;
+    padding: 0 1rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.field-label {
+    display: block;
+    padding-bottom: .8rem;
+}
+
+input::placeholder {
+    color: #3F4959;
+}
+
+input:not([type=radio]) {
+    width: 100%;
+    height: 2.5rem;
+}
+
+input[type=radio] {
+    accent-color: #8667F0;
+}
+
+input[type=radio] + label {
+    margin-right: 1rem;
+}
