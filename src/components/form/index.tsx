@@ -5,13 +5,13 @@ import Button from '../button'
 import { FormProps } from './types'
 import './form.css'
 
-const Form = ({ fields, submitText, onSubmit }: FormProps ) => {
+const Form = ({ fields, submitText, onSubmit, onClean }: FormProps ) => {
 
     const initialState = Object.fromEntries(fields.map(field => [ field.name, '' ]))
 
     const [ formState, setFormState ] = React.useState( initialState )
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
         const { target: { name, value } } = e
 
@@ -19,6 +19,12 @@ const Form = ({ fields, submitText, onSubmit }: FormProps ) => {
             ...formState,
             [name]: value
         })
+    }
+
+    const handleClean = (): void => {
+            
+        setFormState( initialState )
+        onClean && onClean()
     }
 
     return (
@@ -38,7 +44,7 @@ const Form = ({ fields, submitText, onSubmit }: FormProps ) => {
             { <Button text={ submitText } onClick={ () => onSubmit(formState) } /> }
 
 
-            { <Button text='Limpiar' onClick={ () => setFormState( initialState )} type='secondary'/> }
+            { <Button text='Limpiar' onClick={ handleClean } type='secondary'/> }
         </form>
     )
 }

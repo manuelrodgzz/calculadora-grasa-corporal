@@ -1,5 +1,5 @@
 export interface PersonData {
-    gender: string;
+    gender: 'male' | 'female';
     height: number;
     weight: number;
     waist: number;
