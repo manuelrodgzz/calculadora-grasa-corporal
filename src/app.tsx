@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './components/header'
 import FatCalculator from './components/fatCalculator';
-import './app.css';
 import './utilities.css';
 
 function App() {
