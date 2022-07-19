@@ -2,10 +2,10 @@ import React from 'react'
 import { ButtonProps } from './types'
 import './button.css'
 
-const Button = ({ text, type = 'primary', onClick }: ButtonProps) => {
+const Button = ({ text, type = 'primary', htmlType, onClick }: ButtonProps) => {
 
     return (
-        <button className={ `background-${ type }` } onClick={ onClick }>
+        <button className={ `background-${ type }` } type={ htmlType } onClick={ onClick }>
             { text }
         </button>
     )

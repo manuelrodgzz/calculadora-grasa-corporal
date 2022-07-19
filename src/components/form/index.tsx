@@ -33,8 +33,14 @@ const Form = ({ fields, submitText, onSubmit, onClean, onChange }: FormProps ) =
         onClean && onClean()
     }
 
+    const handleSubmit = (e: React.SyntheticEvent): void => {
+        e.preventDefault()
+
+        onSubmit(formState)
+    }
+
     return (
-        <form onSubmit={ e => e.preventDefault()}>
+        <form onSubmit={ handleSubmit }>
 
             {/* Form Fields */}
             {
@@ -50,7 +56,7 @@ const Form = ({ fields, submitText, onSubmit, onClean, onChange }: FormProps ) =
             }
 
             {/* Submit button */}
-            { <Button text={ submitText } onClick={ () => onSubmit(formState) } /> }
+            { <Button text={ submitText } htmlType='submit' /> }
 
             {/* Clean button */}
             { <Button text='Limpiar' onClick={ handleClean } type='secondary'/> }

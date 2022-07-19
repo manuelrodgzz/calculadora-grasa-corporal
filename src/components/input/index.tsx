@@ -5,7 +5,7 @@ import './input.css';
 
 const Input = ( field: InputProps ) => {
 
-    const { label, name, placeholder, type, value, onChange } = field
+    const { label, name, placeholder, type, value, required, onChange } = field
 
     // Radio buttons rendering is different
     if ( type === 'radio' ) {
@@ -26,6 +26,7 @@ const Input = ( field: InputProps ) => {
                                 name={ name }
                                 value={ option.value }
                                 onChange={ onChange }
+                                required={ required }
                                 checked={ value !== undefined ? (value === option.value) : undefined }
                             />
 
@@ -58,6 +59,7 @@ const Input = ( field: InputProps ) => {
                 placeholder={ placeholder }
                 name={ name }
                 onChange={ onChange }
+                required={ required }
                 value={ value !== undefined ? value : undefined }
             />
         </React.Fragment>

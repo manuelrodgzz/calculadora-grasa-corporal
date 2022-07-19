@@ -10,6 +10,7 @@ const formFields: InputProps[] = [
         type: 'radio',
         name: 'gender',
         label: 'Género',
+        required: true,
         options: [
             { label: 'Hombre', value: 'male' },
             { label: 'Mujer', value: 'female' },
@@ -19,24 +20,28 @@ const formFields: InputProps[] = [
         type: 'number',
         name: 'height',
         label: 'Altura (cm)',
+        required: true,
         placeholder: 'Escribe tu altura'
     },
     {
         type: 'number',
         name: 'weight',
         label: 'Peso (kg)',
+        required: true,
         placeholder: 'Escribe tu peso'
     },
     {
         type: 'number',
         name: 'waist',
         label: 'Cintura (cm)',
+        required: true,
         placeholder: 'Medida de tu cintura'
     },
     {
         type: 'number',
         name: 'neck',
         label: 'Cuello (cm)',
+        required: true,
         placeholder: 'Medida de tu cuello'
     },
     {
@@ -47,6 +52,7 @@ const formFields: InputProps[] = [
         type: 'number',
         name: 'hip',
         label: 'Cadera (cm)',
+        required: true,
         placeholder: 'Medida de tu cadera'
     },
 ]

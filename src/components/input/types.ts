@@ -2,6 +2,7 @@ export interface BasicFieldProps {
     name: string;
     label: string;
     value?: string;
+    required?: boolean;
     placeholder?: string;
     if?: {
         field: string;
