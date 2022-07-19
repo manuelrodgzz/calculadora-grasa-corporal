@@ -5,21 +5,29 @@ import './spectrum.css'
 
 const Spectrum = ({ ranges, value }: SpectrumProps) => {
 
-    const markerMarginLeft = useMemo(() => {
+    // Calculate the marker offset
+    const markerMarginLeft = useMemo<string>(() => {
 
         let marginLeft = 0
+
+        // Percentage of the total width of each range
         const blockPercentage = 100 / ranges.length
 
+        // Loop through ranges
         for ( let range of ranges ) {
 
+            // If the value is not bigger than the limit of the current range
             if ( value <= range.ends ) {
 
                 const rangeDiff = value - range.begins
+
+                // Calculate how much margin-left is needed
                 marginLeft += ( rangeDiff / ( range.ends - range.begins )) * blockPercentage
                 break
 
             } else {
 
+                // If value is bigger than the limit of the current range just add the percentage of the block
                 marginLeft += blockPercentage
 
             }
@@ -29,8 +37,6 @@ const Spectrum = ({ ranges, value }: SpectrumProps) => {
         return `calc(${ marginLeft }% - 1rem)`
 
     }, [ ranges, value ])
-
-    console.log(markerMarginLeft)
 
     const gradientStyles: React.CSSProperties = {
         backgroundImage: `linear-gradient(to right, ${ ranges.map( range => range.color ).join(', ') }`

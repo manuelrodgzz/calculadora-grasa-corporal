@@ -3,6 +3,10 @@ export interface BasicFieldProps {
     label: string;
     value?: string;
     placeholder?: string;
+    if?: {
+        field: string;
+        equals: any;
+    };
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

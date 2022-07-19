@@ -5,4 +5,5 @@ export interface FormProps {
     submitText: string
     onSubmit: (formData: any) => void;
     onClean?: () => void;
+    onChange?: (formData: any) => void;
 }

@@ -13,3 +13,7 @@ button:hover {
 button.background-primary:hover {
     background-color: #7558d2;
 }
+
+button.background-secondary:hover {
+    text-decoration: underline;
+}

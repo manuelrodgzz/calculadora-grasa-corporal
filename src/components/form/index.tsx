@@ -5,20 +5,26 @@ import Button from '../button'
 import { FormProps } from './types'
 import './form.css'
 
-const Form = ({ fields, submitText, onSubmit, onClean }: FormProps ) => {
+const Form = ({ fields, submitText, onSubmit, onClean, onChange }: FormProps ) => {
 
+    // Initial form state
     const initialState = Object.fromEntries(fields.map(field => [ field.name, '' ]))
 
+    // Form state
     const [ formState, setFormState ] = React.useState( initialState )
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
         const { target: { name, value } } = e
 
-        setFormState({
+        const newState = {
             ...formState,
             [name]: value
-        })
+        }
+
+        setFormState( newState )
+
+        onChange && onChange( newState )
     }
 
     const handleClean = (): void => {
@@ -29,9 +35,11 @@ const Form = ({ fields, submitText, onSubmit, onClean }: FormProps ) => {
 
     return (
         <form onSubmit={ e => e.preventDefault()}>
+
+            {/* Form Fields */}
             {
                 fields.map( ( field, index ) => 
-                    <Input
+                    (!field.if || formState[ field.if.field ] === field.if.equals) && <Input
                         key={ hash([ index, field ])}
                         onChange={ handleInputChange }
                         value={ formState[ field.name ] }
@@ -41,9 +49,10 @@ const Form = ({ fields, submitText, onSubmit, onClean }: FormProps ) => {
                 )
             }
 
+            {/* Submit button */}
             { <Button text={ submitText } onClick={ () => onSubmit(formState) } /> }
 
-
+            {/* Clean button */}
             { <Button text='Limpiar' onClick={ handleClean } type='secondary'/> }
         </form>
     )

@@ -7,15 +7,19 @@ const Input = ( field: InputProps ) => {
 
     const { label, name, placeholder, type, value, onChange } = field
 
+    // Radio buttons rendering is different
     if ( type === 'radio' ) {
         
         return (
             <React.Fragment>
 
+                {/* Field label */}
                 <label className='field-label'>{ label }</label>    
                 {
                     field.options.map( ( option, optionIndex ) => (
                         <React.Fragment key={`${ option.value } ${ optionIndex }`}>
+
+                            {/* Radio button */}
                             <input
                                 id={ hash([ option.label, name ])}
                                 type={ type }
@@ -25,6 +29,7 @@ const Input = ( field: InputProps ) => {
                                 checked={ value !== undefined ? (value === option.value) : undefined }
                             />
 
+                            {/* Radio button label */}
                             <label
                                 htmlFor={ hash([ option.label, name ])}
                             >
@@ -37,6 +42,7 @@ const Input = ( field: InputProps ) => {
         )
     }
     
+    // Rest of the fields render the same way
     return (
         <React.Fragment>
             <label
