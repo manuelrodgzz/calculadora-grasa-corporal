@@ -20,3 +20,18 @@
     flex: 1 1 0px;
     padding: 2rem
 }
+
+@media screen and (max-width: 767px) {
+    .columns {
+        flex-direction: column;
+    }
+
+    .columns > .column {
+        padding: 2rem 1rem;
+    }
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
