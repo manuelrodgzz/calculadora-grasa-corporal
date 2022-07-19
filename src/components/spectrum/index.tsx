@@ -34,7 +34,7 @@ const Spectrum = ({ ranges, value }: SpectrumProps) => {
         }
 
         // Since the marker is centered, we need to subtract half of the width
-        return `calc(${ marginLeft }% - 1rem)`
+        return `calc(${ marginLeft < 0 ? 0 : marginLeft }% - 1rem)`
 
     }, [ ranges, value ])
 
