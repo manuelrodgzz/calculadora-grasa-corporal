@@ -49,6 +49,8 @@ const Spectrum = ({ ranges, value }: SpectrumProps) => {
     return (
         <div className='spectrum-container'>
 
+            <h2>Tu resultado es { value }%</h2>
+
             {/* Marker Container */}
             <div className='spectrum-marker-container' style={ markerStyles }>
 
